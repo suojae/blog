@@ -1,13 +1,13 @@
-# dashboard
+# AnuPpuccin
 
-- Theme: dashboard
-- Author: <a href="https://github.com/incantatem2" target="_blank" rel="noopener noreferrer">incantatem2</a>
+- Theme: AnuPpuccin
+- Author: <a href="https://github.com/AnubisNekhet" target="_blank" rel="noopener noreferrer">Anubis</a>
 
 ## Preview
 
-[Open live preview (Quartz)](https://quartz-themes.github.io/dashboard/)
+[Open live preview (Quartz)](https://quartz-themes.github.io/anuppuccin/)
 
-[Open live preview (Publish)](https://publish.saberzero.one/dashboard)
+[Open live preview (Publish)](https://publish.saberzero.one/anuppuccin)
 
 ## Usage (Quartz)
 
@@ -15,7 +15,7 @@
 
 ```yaml
 env:
-  THEME_NAME: dashboard
+  THEME_NAME: anuppuccin
 ```
 
 ```yaml
@@ -28,7 +28,7 @@ env:
 ```bash
 curl -s -S -o action.sh https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh
 
-./action.sh dashboard
+./action.sh anuppuccin
 ```
 
 ### Manual install
