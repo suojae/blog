@@ -23,7 +23,7 @@ const config: QuartzConfig = {
       typography: {
         header: "Cafe24 Oneprettynight",
         body: "Cafe24 Oneprettynight",
-        code: "IBM Plex Mono",
+        code: "Cafe24 Oneprettynight",
       },
       colors: {
         lightMode: {
