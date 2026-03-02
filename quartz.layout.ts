@@ -2,11 +2,11 @@ import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
 // 폴더 정렬 순서
-const folderOrder = ["프론트엔드", "백엔드", "인프라", "마케팅"]
 const explorerSortFn = (a: any, b: any) => {
+  const order = ["프론트엔드", "백엔드", "인프라", "마케팅"]
   if (a.isFolder && b.isFolder) {
-    const aIdx = folderOrder.indexOf(a.displayName)
-    const bIdx = folderOrder.indexOf(b.displayName)
+    const aIdx = order.indexOf(a.displayName)
+    const bIdx = order.indexOf(b.displayName)
     if (aIdx !== -1 && bIdx !== -1) return aIdx - bIdx
     if (aIdx !== -1) return -1
     if (bIdx !== -1) return 1
