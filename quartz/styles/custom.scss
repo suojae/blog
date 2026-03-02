@@ -24,6 +24,21 @@ a.internal.tag-link {
   margin-top: 1.2rem;
 }
 
+// 그래프 색상 (초록 → 코랄/라벤더 계열)
+:root {
+  --graph-node: rgb(180, 160, 220) !important;
+  --graph-node-tag: rgb(240, 160, 110) !important;
+  --graph-node-focused: rgb(240, 140, 160) !important;
+  --graph-line: rgb(180, 175, 195) !important;
+}
+
+[saved-theme="dark"] {
+  --graph-node: rgb(180, 170, 230) !important;
+  --graph-node-tag: rgb(245, 169, 127) !important;
+  --graph-node-focused: rgb(242, 143, 173) !important;
+  --graph-line: rgb(120, 115, 145) !important;
+}
+
 // 표지(index) 정리
 body[data-slug="index"] {
   .article-title,

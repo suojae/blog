@@ -9,14 +9,9 @@ tags:
   - google-play-api
 ---
 
-> GCP 서비스 계정으로 Google API를 호출했는데 403이 뜨면,
-> 키가 잘못된 게 아니라 scope가 빠진 것일 수 있다.
-
----
-
 ## 서비스 계정은 사람 대신 API를 호출하는 로봇이다
 
-Google Cloud에서 서버가 Google API를 호출하려면 "나 누구야"를 증명해야 한다. 사람이 브라우저에서 로그인하듯, 서버는 **서비스 계정**(JSON 키 파일)으로 신분을 증명한다.
+Google Cloud에서 서버가 Google API를 호출하려면 "나 누구야"를 증명해야 한다. 사람이 브라우저에서 로그인하듯, 서버는 서비스 계정(JSON 키 파일)으로 신분을 증명한다.
 
 ```
 ┌────────────┐     ┌────────────────┐     ┌──────────────┐
@@ -27,7 +22,7 @@ Google Cloud에서 서버가 Google API를 호출하려면 "나 누구야"를 �
   (JSON 파일)        (scope 확인)
 ```
 
-서비스 계정 키로 토큰을 발급받을 때, **"이 토큰으로 어떤 API를 쓸 거야"**를 선언하는 게 scope다.
+서비스 계정 키로 토큰을 발급받을 때, "이 토큰으로 어떤 API를 쓸 거야"를 선언하는 게 scope다.
 
 ---
 
@@ -35,9 +30,9 @@ Google Cloud에서 서버가 Google API를 호출하려면 "나 누구야"를 �
 
 비유하면 이렇다:
 
-- 서비스 계정 키 = **사원증** (신분 증명)
-- scope = **출입 가능 구역** (이 사원증으로 어디까지 들어갈 수 있는지)
-- API 호출 = **특정 구역에 입장 시도**
+- 서비스 계정 키 = 사원증 (신분 증명)
+- scope = 출입 가능 구역 (이 사원증으로 어디까지 들어갈 수 있는지)
+- API 호출 = 특정 구역에 입장 시도
 
 ```
 사원증만 있고 출입 구역이 안 적혀 있으면?
@@ -62,15 +57,13 @@ GoogleCredentials.fromStream(keyFile)
 
 ## 실제 디버깅 과정
 
-### 증상: 서버가 503을 반환한다
-
-서버 로그에는 이렇게만 찍힌다:
+서버 로그에 이렇게만 찍혔다:
 
 ```
 503 SERVICE_UNAVAILABLE "Google Play API is temporarily unavailable"
 ```
 
-이것만 보면 Google API가 일시적으로 죽은 것 같다. 하지만 실제로는 **서버가 모든 Google API 에러를 503으로 변환**하고 있었다:
+이것만 보면 Google API가 일시적으로 죽은 것 같다. 근데 실제로는 서버가 모든 Google API 에러를 503으로 변환하고 있었다:
 
 ```kotlin
 catch (e: GoogleJsonResponseException) {
@@ -81,11 +74,13 @@ catch (e: GoogleJsonResponseException) {
 }
 ```
 
-403(권한 없음)이든 404(리소스 없음)이든 전부 "일시적 오류"로 바뀌어 나온다. **에러를 뭉뚱그리면 디버깅이 불가능해진다.**
+403(권한 없음)이든 404(리소스 없음)이든 전부 "일시적 오류"로 바뀌어 나옴. 에러를 뭉뚱그리면 디버깅이 불가능해진다.
 
-### 해결: 서비스 계정으로 직접 API를 호출해본다
+---
 
-서버를 거치지 않고, **같은 서비스 계정**으로 Google API를 직접 호출하면 진짜 에러가 보인다.
+## 서비스 계정으로 직접 API를 호출해본다
+
+서버를 거치지 않고, 같은 서비스 계정으로 Google API를 직접 호출하면 진짜 에러가 보인다.
 
 ```bash
 # 1. 서비스 계정으로 로그인 (서버와 같은 신분)
@@ -107,16 +102,16 @@ curl "https://androidpublisher.googleapis.com/..." \
 ```
 
 같은 서비스 계정, 같은 API인데:
-- scope 없이 → **403** (문 앞에서 거절)
-- scope 있으면 → **400** (문 안에 들어감, 다른 이유로 실패)
+- scope 없이 → 403 (문 앞에서 거절)
+- scope 있으면 → 400 (문 안에 들어감, 다른 이유로 실패)
 
-**차이점이 scope 하나뿐이니까, 서버도 scope 없이 호출하고 있다는 결론이 나온다.**
+차이점이 scope 하나뿐이니까, 서버도 scope 없이 호출하고 있다는 결론이 나온다.
 
 ---
 
 ## 서버의 credential이 scope 없이 만들어지는 시나리오
 
-Spring Boot에서 credential을 Bean으로 등록하면, 서버가 시작될 때 **한 번만** 생성되고 이후 계속 재사용된다.
+Spring Boot에서 credential을 Bean으로 등록하면, 서버가 시작될 때 한 번만 생성되고 이후 계속 재사용된다.
 
 ```kotlin
 @Bean
@@ -131,19 +126,17 @@ fun credentials(resource: Resource): GoogleCredentials {
 }
 ```
 
-서버 시작 시 **키 파일이 없거나**, **일시적 IO 에러**가 나면 fallback으로 scope 없는 credential이 만들어진다. 이게 Bean으로 캐싱되어서 서버가 꺼질 때까지 계속 사용된다.
+서버 시작 시 키 파일이 없거나 일시적 IO 에러가 나면 fallback으로 scope 없는 credential이 만들어진다. 이게 Bean으로 캐싱되어서 서버가 꺼질 때까지 계속 사용됨.
 
-이때 서버를 재시작하면 credential이 다시 생성되고, 이번에는 키 파일이 정상 로드되어 scope가 포함된 credential이 만들어진다. **재시작만으로 해결되는 이유가 이것**이다.
+서버를 재시작하면 credential이 다시 생성되고, 이번에는 키 파일이 정상 로드되어 scope가 포함된 credential이 만들어진다. 재시작만으로 해결되는 이유가 이거다.
 
 ---
 
-## 삽질에서 배운 것들
+## 삽질에서 건진 것들
 
-### 에러 메시지를 뭉뚱그리지 말 것
+에러 메시지를 뭉뚱그리면 안 된다. Google API가 403을 줬는데 서버가 503으로 바꿔서 내보내면, 클라이언트 개발자는 "서버가 불안정한가?"라고 잘못된 방향으로 디버깅하게 됨. 최소한 로그에는 원본 에러를 남겨야 한다.
 
-Google API가 403을 줬는데 서버가 503으로 바꿔서 내보내면, 클라이언트 개발자는 "서버가 불안정한가?"라고 잘못된 방향으로 디버깅한다. 최소한 로그에는 원본 에러를 남겨야 한다.
-
-### 서비스 계정 권한은 세 겹이다
+서비스 계정 권한은 세 겹이다:
 
 ```
 1. GCP IAM 역할    → 프로젝트 내 리소스 접근 권한
@@ -151,24 +144,15 @@ Google API가 403을 줬는데 서버가 503으로 바꿔서 내보내면, 클�
 3. 외부 서비스 권한  → Play Console, Firebase 등에서 별도 부여
 ```
 
-1번만 설정하면 되는 게 아니다. scope가 빠지면 IAM 역할이 있어도 API 호출이 거부된다. Play Console처럼 외부 서비스 권한이 필요한 경우도 있다.
+1번만 설정하면 되는 게 아니다. scope가 빠지면 IAM 역할이 있어도 API 호출이 거부됨.
 
-### gcloud CLI는 서버 디버깅 도구다
+`gcloud auth activate-service-account`로 서버와 같은 신분을 흉내 내서, 서버를 안 건드리고도 API 호출을 테스트할 수 있다. 서버 코드를 수정하고 배포하는 것보다 훨씬 빠름.
 
-`gcloud auth activate-service-account`로 서버와 같은 신분을 흉내 내서, 서버를 안 건드리고도 API 호출을 테스트할 수 있다. 서버 코드를 수정하고 배포하는 것보다 훨씬 빠르다.
-
-### credential fallback에 dummy 토큰을 넣지 말 것
-
-키 파일 로드 실패 시 dummy credential로 fallback하면, 서버가 **에러 없이 시작되지만 모든 API 호출이 실패**하는 상태가 된다. 차라리 서버 시작을 실패시키는 게 낫다. 문제를 빨리 발견할 수 있으니까.
+credential fallback에 dummy 토큰을 넣는 건 최악이다. 키 파일 로드 실패 시 dummy credential로 fallback하면, 서버가 에러 없이 시작되지만 모든 API 호출이 실패하는 상태가 된다. 차라리 서버 시작을 실패시키는 게 낫다. 문제를 빨리 발견할 수 있으니까.
 
 ---
 
-## 문제가 생겼을 때 따라가는 순서
+## 참고
 
-```
-1. 서버 로그에서 실제 에러 코드 확인 → 503이면 원본 에러가 숨겨진 건 아닌지
-2. gcloud로 서비스 계정 활성화 → 같은 신분으로 직접 API 호출
-3. scope 없이 호출 vs scope 포함 호출 → 결과 차이로 scope 문제 판별
-4. 서버의 credential 생성 코드 확인 → fallback에서 scope가 빠지는 경로 있는지
-5. 서버 시작 로그 확인 → "Using dummy credentials" 같은 경고 메시지 있는지
-```
+- [GCP 서비스 계정 문서](https://cloud.google.com/iam/docs/service-accounts)
+- [Google OAuth2 Scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
