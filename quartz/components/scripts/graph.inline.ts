@@ -90,10 +90,12 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
-    Object.entries<ContentDetails>(await fetchData).map(([k, v]) => [
-      simplifySlug(k as FullSlug),
-      v,
-    ]),
+    Object.entries<ContentDetails>(await fetchData)
+      .filter(([k]) => simplifySlug(k as FullSlug) !== ("index" as SimpleSlug))
+      .map(([k, v]) => [
+        simplifySlug(k as FullSlug),
+        v,
+      ]),
   )
   const links: SimpleLinkData[] = []
   const tags: SimpleSlug[] = []
@@ -101,7 +103,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
 
   const tweens = new Map<string, TweenNode>()
   for (const [source, details] of data.entries()) {
-    const outgoing = details.links ?? []
+    const outgoing = (details.links ?? []).filter((dest) => dest !== ("index" as SimpleSlug))
 
     for (const dest of outgoing) {
       if (validLinks.has(dest)) {
