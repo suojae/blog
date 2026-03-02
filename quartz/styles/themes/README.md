@@ -1,14 +1,13 @@
-# Sandover
+# dashboard
 
-- Theme: Sandover
-- Author: <a href="https://github.com/eliz-abeth" target="_blank" rel="noopener noreferrer">eliz-abeth</a>
-- Support the author: <a href="http://ko-fi.com/eliz0beth" target="_blank" rel="noopener noreferrer">Donate</a>
+- Theme: dashboard
+- Author: <a href="https://github.com/incantatem2" target="_blank" rel="noopener noreferrer">incantatem2</a>
 
 ## Preview
 
-[Open live preview (Quartz)](https://quartz-themes.github.io/sandover/)
+[Open live preview (Quartz)](https://quartz-themes.github.io/dashboard/)
 
-[Open live preview (Publish)](https://publish.saberzero.one/sandover)
+[Open live preview (Publish)](https://publish.saberzero.one/dashboard)
 
 ## Usage (Quartz)
 
@@ -16,7 +15,7 @@
 
 ```yaml
 env:
-  THEME_NAME: sandover
+  THEME_NAME: dashboard
 ```
 
 ```yaml
@@ -29,7 +28,7 @@ env:
 ```bash
 curl -s -S -o action.sh https://raw.githubusercontent.com/saberzero1/quartz-themes/master/action.sh
 
-./action.sh sandover
+./action.sh dashboard
 ```
 
 ### Manual install
