@@ -17,12 +17,21 @@ a.internal.tag-link {
   color: var(--dark) !important;
 }
 
-// 표지(index)에서 목차, 구분선, 제목 숨기기
+// 표지(index) 정리
 body[data-slug="index"] {
   .article-title,
   .content-meta,
+  .tag-list,
   .toc,
+  .backlinks,
   hr {
     display: none !important;
+  }
+
+  .graph-links {
+    display: none !important;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
   }
 }
