@@ -1,5 +1,5 @@
 ---
-title: "메시지를 보내는 세 가지 AWS 서비스가 각자 다른 문제를 푼다"
+title: "AWS SES vs SQS vs SNS 비교"
 tags:
   - aws
   - ses
