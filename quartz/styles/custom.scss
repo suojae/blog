@@ -17,6 +17,13 @@ a.internal.tag-link {
   color: var(--dark) !important;
 }
 
+.cover-line {
+  color: var(--secondary) !important;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-top: 1.2rem;
+}
+
 // 표지(index) 정리
 body[data-slug="index"] {
   .article-title,
