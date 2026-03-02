@@ -9,22 +9,20 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "IBM Plex Mono";
-  src: url("./static/fonts/IBMPlexMono-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "IBM Plex Mono";
-  src: url("./static/fonts/IBMPlexMono-SemiBold.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+* {
+  font-family: "Cafe24 Oneprettynight", system-ui, sans-serif !important;
 }
 
 a.internal.tag-link {
   color: var(--dark) !important;
+}
+
+// 표지(index)에서 목차, 구분선, 제목 숨기기
+body[data-slug="index"] {
+  .article-title,
+  .content-meta,
+  .toc,
+  hr {
+    display: none !important;
+  }
 }
