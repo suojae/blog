@@ -45,11 +45,19 @@ body[data-slug="index"] {
     grid-column: 2 / -1 !important;
     grid-row: 1 / -1 !important;
     position: relative !important;
-    height: auto !important;
+    height: calc(100vh - 4rem) !important;
     padding: 2rem 0 !important;
     display: flex !important;
-    align-items: center !important;
+    align-items: stretch !important;
     justify-content: center !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+
+    // 태블릿 max-height 제한 해제
+    & > * {
+      max-height: none !important;
+      flex: none !important;
+    }
   }
 
   // 그래프 외 우측 사이드바 요소 숨김
@@ -69,12 +77,19 @@ body[data-slug="index"] {
   // 로컬 그래프를 크게 표시
   .graph {
     width: 100% !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   .graph > .graph-outer {
-    height: 80vh !important;
+    flex: 1 !important;
+    height: 100% !important;
+    min-height: 0 !important;
     border: none !important;
+    border-radius: 0 !important;
     margin: 0 !important;
+    overflow: visible !important;
   }
 
   // 글로벌 그래프 오버레이 비활성화
@@ -82,15 +97,12 @@ body[data-slug="index"] {
     display: none !important;
   }
 
-  // 모바일에서 그래프 높이 조정
+  // 모바일
   @media (max-width: 800px) {
     #quartz-body > .sidebar.right {
       grid-column: 1 / -1 !important;
-      padding: 1rem 0 !important;
-    }
-
-    .graph > .graph-outer {
-      height: 60vh !important;
+      height: 70vh !important;
+      padding: 0.5rem 0 !important;
     }
   }
 }
