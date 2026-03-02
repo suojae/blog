@@ -583,6 +583,15 @@ document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
     cleanupLocalGraphs()
     const localGraphContainers = document.getElementsByClassName("graph-container")
     for (const container of localGraphContainers) {
+      // On index page, show all nodes like global graph
+      if (document.body.dataset.slug === "index") {
+        const el = container as HTMLElement
+        const cfg = JSON.parse(el.dataset["cfg"]!)
+        cfg.depth = -1
+        cfg.enableRadial = true
+        cfg.focusOnHover = true
+        el.dataset["cfg"] = JSON.stringify(cfg)
+      }
       localGraphCleanups.push(await renderGraph(container as HTMLElement, slug))
     }
   }

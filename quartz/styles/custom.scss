@@ -17,13 +17,6 @@ a.internal.tag-link {
   color: var(--dark) !important;
 }
 
-.cover-line {
-  color: var(--secondary) !important;
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin-top: 1.2rem;
-}
-
 // 그래프 색상 (초록 → 코랄/라벤더 계열)
 :root {
   --graph-node: rgb(180, 160, 220) !important;
@@ -39,21 +32,65 @@ a.internal.tag-link {
   --graph-line: rgb(120, 115, 145) !important;
 }
 
-// 표지(index) 정리
+// 표지(index) — 그래프를 히어로로 표시
 body[data-slug="index"] {
-  .article-title,
-  .content-meta,
-  .tag-list,
-  .toc,
-  .backlinks,
-  hr {
+  // 중앙 콘텐츠 영역 숨김
+  .center {
     display: none !important;
   }
 
-  .graph-links {
+  // 우측 사이드바를 중앙+우측 영역으로 확장
+  #quartz-body > .sidebar.right {
+    grid-area: auto !important;
+    grid-column: 2 / -1 !important;
+    grid-row: 1 / -1 !important;
+    position: relative !important;
+    height: auto !important;
+    padding: 2rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  // 그래프 외 우측 사이드바 요소 숨김
+  .sidebar.right > *:not(.graph) {
     display: none !important;
-    height: 0;
-    overflow: hidden;
-    position: absolute;
+  }
+
+  // 그래프 제목, 아이콘 숨김
+  .graph > h3 {
+    display: none !important;
+  }
+
+  .global-graph-icon {
+    display: none !important;
+  }
+
+  // 로컬 그래프를 크게 표시
+  .graph {
+    width: 100% !important;
+  }
+
+  .graph > .graph-outer {
+    height: 80vh !important;
+    border: none !important;
+    margin: 0 !important;
+  }
+
+  // 글로벌 그래프 오버레이 비활성화
+  .global-graph-outer {
+    display: none !important;
+  }
+
+  // 모바일에서 그래프 높이 조정
+  @media (max-width: 800px) {
+    #quartz-body > .sidebar.right {
+      grid-column: 1 / -1 !important;
+      padding: 1rem 0 !important;
+    }
+
+    .graph > .graph-outer {
+      height: 60vh !important;
+    }
   }
 }
