@@ -1,5 +1,5 @@
 ---
-title: "웹 브라우저가 타임아웃을 감추는 세계에서 HTTP 라이브러리를 고치다"
+title: "Dio 타임아웃 버그 분석"
 tags:
   - dart
   - http-client

@@ -1,5 +1,5 @@
 ---
-title: "푸시 알림 하나가 화면을 여는 여정"
+title: "푸시 알람을 화면에서 열기까지"
 tags:
   - flutter
   - fcm
