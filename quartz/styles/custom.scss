@@ -1,4 +1,26 @@
 @use "./base.scss";
 @use "./themes";
 
-// put your custom CSS here!
+@font-face {
+  font-family: "Cafe24 Oneprettynight";
+  src: url("./static/fonts/Cafe24Oneprettynight.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("./static/fonts/IBMPlexMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("./static/fonts/IBMPlexMono-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
