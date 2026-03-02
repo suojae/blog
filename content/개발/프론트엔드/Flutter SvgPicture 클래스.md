@@ -1,8 +1,16 @@
-# SVG 파일 하나가 Flutter 화면의 픽셀이 되기까지
+---
+title: "SVG 파일 하나가 Flutter 화면의 픽셀이 되기까지"
+tags:
+  - flutter
+  - svg
+  - rendering-pipeline
+  - caching
+  - widget
+  - isolate
+  - canvas
+---
 
 > `SvgPicture.asset('icon.svg')` 한 줄이 실행되면 안에서 어떤 일이 벌어지는가. SVG XML이 바이너리로 컴파일되고, 바이너리가 그리기 명령어로 풀리고, 명령어가 GPU에서 픽셀이 되는 전체 여정.
-
-#flutter #svg #rendering-pipeline #caching #widget #isolate #canvas
 
 ---
 

@@ -1,9 +1,16 @@
-# 푸시 알림 하나가 화면을 여는 여정
+---
+title: "푸시 알림 하나가 화면을 여는 여정"
+tags:
+  - flutter
+  - fcm
+  - push-notification
+  - gorouter
+  - navigation
+  - deep-linking
+---
 
 > Flutter에서 FCM 푸시 알림을 받고, 특정 페이지로 이동시키는 전체 과정.
 > 어떤 프로젝트든 구조는 같다.
-
-#flutter #fcm #push-notification #gorouter #navigation #deep-linking
 
 ---
 

@@ -1,8 +1,16 @@
-# 웹 브라우저가 타임아웃을 감추는 세계에서 HTTP 라이브러리를 고치다
+---
+title: "웹 브라우저가 타임아웃을 감추는 세계에서 HTTP 라이브러리를 고치다"
+tags:
+  - dart
+  - http-client
+  - xhr
+  - browser-security
+  - cors
+  - adapter-pattern
+  - open-source
+---
 
 > HTTP 클라이언트가 웹에서 `receiveTimeout`인데 `connectionTimeout`으로 잘못 보고하는 버그. 브라우저 보안 모델이 만드는 제약 안에서, XHR의 readyState로 타임아웃 종류를 추론한 과정.
-
-#dart #http-client #xhr #browser-security #cors #adapter-pattern #open-source
 
 ---
 

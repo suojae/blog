@@ -1,9 +1,16 @@
-# 서버가 API를 호출하는데 문 앞에서 쫓겨날 때
+---
+title: "서버가 API를 호출하는데 문 앞에서 쫓겨날 때"
+tags:
+  - gcp
+  - service-account
+  - oauth2
+  - scope
+  - debugging
+  - google-play-api
+---
 
 > GCP 서비스 계정으로 Google API를 호출했는데 403이 뜨면,
 > 키가 잘못된 게 아니라 scope가 빠진 것일 수 있다.
-
-#gcp #service-account #oauth2 #scope #debugging #google-play-api
 
 ---
 

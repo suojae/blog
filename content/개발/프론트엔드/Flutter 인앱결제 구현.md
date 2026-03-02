@@ -1,9 +1,16 @@
-# 앱이 결제하고, 서버가 의심하고, 스토어가 보증하는 구조
+---
+title: "앱이 결제하고, 서버가 의심하고, 스토어가 보증하는 구조"
+tags:
+  - flutter
+  - in-app-purchase
+  - subscription
+  - iOS
+  - android
+  - server-verification
+---
 
 > 모바일 인앱결제는 "앱 → 스토어 → 서버" 3자가 역할을 나눠 가진다.
 > 돈은 스토어가 받고, 서버가 진위를 확인하고, 앱은 결과를 보여줄 뿐이다.
-
-#flutter #in-app-purchase #subscription #iOS #android #server-verification
 
 ---
 

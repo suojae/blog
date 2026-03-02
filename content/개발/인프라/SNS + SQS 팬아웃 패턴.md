@@ -1,8 +1,17 @@
-# 하나의 이벤트가 여러 서비스를 동시에 깨우는 팬아웃 패턴
+---
+title: "하나의 이벤트가 여러 서비스를 동시에 깨우는 팬아웃 패턴"
+tags:
+  - aws
+  - sns
+  - sqs
+  - fan-out
+  - messaging
+  - pub-sub
+  - architecture
+  - infra
+---
 
 > 주문이 들어오면 결제도 하고, 재고도 빼고, 이메일도 보내야 한다. 이걸 순서대로 하면 느리고, 하나가 실패하면 전부 멈춘다. 팬아웃은 "한 번 외치면 각자 알아서 처리하게" 만드는 구조다.
-
-#aws #sns #sqs #fan-out #messaging #pub-sub #architecture #infra
 
 ---
 

@@ -1,8 +1,15 @@
-# 두 패키지를 동시에 바꿔야 할 때 벌어지는 닭과 달걀문제
+---
+title: "두 패키지를 동시에 바꿔야 할 때 벌어지는 닭과 달걀문제"
+tags:
+  - flutter
+  - svg
+  - open-source
+  - multi-package
+  - ci-pipeline
+  - widget-pattern
+---
 
 > 하나의 기능이 두 패키지에 걸쳐 있을 때 오픈소스에 기여하는 과정. cross-package 의존성 때문에 CI가 깨지는 구조적 문제와, PR을 분리해서 해결하는 전략.
-
-#flutter #svg #open-source #multi-package #ci-pipeline #widget-pattern
 
 ---
 

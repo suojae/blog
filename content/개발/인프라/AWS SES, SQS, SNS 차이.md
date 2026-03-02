@@ -1,8 +1,17 @@
-# 메시지를 보내는 세 가지 AWS 서비스가 각자 다른 문제를 푼다
+---
+title: "메시지를 보내는 세 가지 AWS 서비스가 각자 다른 문제를 푼다"
+tags:
+  - aws
+  - ses
+  - sns
+  - sqs
+  - messaging
+  - pub-sub
+  - queue
+  - infra
+---
 
 > 이메일을 보내고 싶으면 SES, 여러 곳에 동시에 알리고 싶으면 SNS, 처리 순서를 보장하며 줄 세우고 싶으면 SQS. 셋 다 "메시지를 전달한다"는 공통점이 있지만 해결하는 문제가 다르다.
-
-#aws #ses #sns #sqs #messaging #pub-sub #queue #infra
 
 ---
 

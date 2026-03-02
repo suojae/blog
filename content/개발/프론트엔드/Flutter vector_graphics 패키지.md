@@ -1,8 +1,16 @@
-# 벡터 그래픽 렌더링 엔진이 바이트를 화면에 그리는 법
+---
+title: "벡터 그래픽 렌더링 엔진이 바이트를 화면에 그리는 법"
+tags:
+  - flutter
+  - vector-graphics
+  - rendering
+  - canvas
+  - caching
+  - listener-pattern
+  - binary-decoding
+---
 
 > SVG를 모르는 렌더링 엔진. 바이너리 데이터만 받아서 Canvas 명령어로 풀고, 캐싱하고, 화면에 그린다. 컴파일러와 사용자 인터페이스 사이에서 "그리기만 담당하는" 패키지의 구조.
-
-#flutter #vector-graphics #rendering #canvas #caching #listener-pattern #binary-decoding
 
 ---
 
