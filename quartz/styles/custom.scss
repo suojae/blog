@@ -17,6 +17,17 @@ a.internal.tag-link {
   color: var(--dark) !important;
 }
 
+// 사이드바 스크롤바 숨김
+.sidebar.left,
+.explorer-content,
+.toc-content,
+.sidebar.right {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 // 그래프 색상 (초록 → 코랄/라벤더 계열)
 :root {
   --graph-node: rgb(180, 160, 220) !important;
