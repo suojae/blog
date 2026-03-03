@@ -1,5 +1,5 @@
 ---
-title: "Dart 매크로는 핫 리로드 앞에서 무릎을 꿇었다"
+title: "Dart 매크로 폐기"
 tags:
   - dart
   - flutter

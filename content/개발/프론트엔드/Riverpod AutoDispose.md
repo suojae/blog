@@ -1,5 +1,5 @@
 ---
-title: "Riverpod AutoDispose, 언제 꺼지고 언제 살려야 하는가"
+title: "Riverpod AutoDispose"
 tags:
   - flutter
   - riverpod

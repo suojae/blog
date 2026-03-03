@@ -1,5 +1,5 @@
 ---
-title: "모바일은 소켓을 쥐고, 브라우저는 창구 뒤에 숨긴다"
+title: "모바일 소켓 vs 브라우저 HTTP"
 tags:
   - socket
   - tcp

@@ -1,5 +1,5 @@
 ---
-title: "푸시 알람을 화면에서 열기까지"
+title: "Flutter FCM 라우팅"
 tags:
   - flutter
   - fcm

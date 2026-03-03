@@ -1,5 +1,5 @@
 ---
-title: "Flutter 소스코드는 세 층짜리 건물이다"
+title: "Flutter 소스코드 구조"
 tags:
   - flutter
   - open-source
@@ -176,7 +176,7 @@ IDE에서 Ctrl+Click으로 따라가면 이 경로가 보인다. 프레임워크
 
 ### flutter_test — 테스트 도구들
 
-[[pumpWidget은 위젯을 심는 거고, pump는 시간을 돌리는 거다|pumpWidget, pump]] 같은 테스트 도구가 여기 들어있다. `testWidgets()`, `WidgetTester`, `find`, 골든 파일 비교 등.
+[[Flutter pumpWidget|pumpWidget, pump]] 같은 테스트 도구가 여기 들어있다. `testWidgets()`, `WidgetTester`, `find`, 골든 파일 비교 등.
 
 ### flutter_tools — CLI의 정체
 
@@ -366,7 +366,7 @@ camera_android, camera_avfoundation, camera_web
 
 ## 프레임이 그려지는 전체 여정
 
-[[setState는 Flutter에게 다시 그려달라고 말하는 거다|setState]]를 호출하면 화면이 갱신된다고 했다. 그 여정을 세 층 전부를 거쳐서 따라가보자.
+[[Flutter setState|setState]]를 호출하면 화면이 갱신된다고 했다. 그 여정을 세 층 전부를 거쳐서 따라가보자.
 
 ```
 1. setState() 호출                             [3층 프레임워크]

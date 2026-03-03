@@ -1,5 +1,5 @@
 ---
-title: "Flutter Build Hooks로 네이티브 코드 연결이 Dart 한 파일로 줄었다"
+title: "Flutter Build Hooks"
 tags:
   - flutter
   - build-hooks

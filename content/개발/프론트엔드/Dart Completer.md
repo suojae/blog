@@ -1,5 +1,5 @@
 ---
-title: "Completer로 비동기의 리모컨을 쥔다"
+title: "Dart Completer"
 tags:
   - dart
   - 비동기

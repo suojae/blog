@@ -1,5 +1,5 @@
 ---
-title: "pumpWidget은 위젯을 심는 거고, pump는 시간을 돌리는 거다"
+title: "Flutter pumpWidget"
 tags:
   - flutter
   - widget-test
@@ -155,7 +155,7 @@ testWidgets('FutureBuilder 테스트', (tester) async {
 
 ## Completer와 조합하면 타이밍을 완전히 제어한다
 
-진짜 서버 호출은 언제 끝날지 모르잖아. 테스트에서는 [[Completer로 비동기의 리모컨을 쥔다|Completer]]를 써서 "내가 원할 때 데이터를 보내는" 가짜 Future를 만들 수 있다:
+진짜 서버 호출은 언제 끝날지 모르잖아. 테스트에서는 [[Dart Completer|Completer]]를 써서 "내가 원할 때 데이터를 보내는" 가짜 Future를 만들 수 있다:
 
 ```dart
 testWidgets('로딩 → 데이터 전환', (tester) async {

@@ -1,5 +1,5 @@
 ---
-title: "Flutter Flame, 위젯 트리를 벗어나 게임 루프로 들어간다"
+title: "Flutter Flame"
 tags:
   - flutter
   - flame
@@ -687,7 +687,7 @@ Flame은 모듈형이다. 코어만 쓸 수도 있고, 필요한 패키지를 �
 | `flame_tiled` | 타일맵 에디터(Tiled)에서 만든 맵 로딩 |
 | `flame_forge2d` | Box2D 기반 물리 엔진 |
 | `flame_bloc` | Bloc 상태관리 연동 |
-| `flame_riverpod` | [[Provider는 위젯 트리 바깥에 상태를 꺼내놓는 거다|Riverpod]] 연동 |
+| `flame_riverpod` | [[Flutter Provider|Riverpod]] 연동 |
 | `flame_rive` | Rive 애니메이션 |
 | `flame_svg` | SVG 렌더링 |
 | `flame_isolate` | 무거운 연산을 Isolate로 분리 |
