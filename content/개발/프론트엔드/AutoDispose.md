@@ -1,5 +1,5 @@
 ---
-title: "Riverpod AutoDispose"
+title: "AutoDispose"
 tags:
   - flutter
   - riverpod
@@ -174,7 +174,7 @@ class PurchaseViewModel extends _$PurchaseViewModel {
 }
 ```
 
-이게 [[Flutter 인앱결제 구현]]에서 말한 그 문제다. 결제 스트림은 앱 전체에서 하나만 돌아야 한다.
+이게 [[인앱결제]]에서 말한 그 문제다. 결제 스트림은 앱 전체에서 하나만 돌아야 한다.
 
 왜 위험한지 시나리오로 보자:
 

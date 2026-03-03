@@ -1,5 +1,5 @@
 ---
-title: "Dio 타임아웃 버그 분석"
+title: "Dio 타임아웃 버그"
 tags:
   - dart
   - http-client

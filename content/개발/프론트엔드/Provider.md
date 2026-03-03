@@ -1,5 +1,5 @@
 ---
-title: "Flutter Provider"
+title: "Provider"
 tags:
   - flutter
   - riverpod
@@ -358,7 +358,7 @@ productDetailProvider('abc') → Product(name: '신발')     ← 별도 인스�
 productDetailProvider('xyz') → Product(name: '모자')     ← 별도 인스턴스
 ```
 
-'abc' 상품의 상세 페이지를 열면 'abc' 인스턴스만 생기고, 'xyz' 상품과는 완전히 독립적이다. [[Riverpod AutoDispose]]에서 말한 것처럼, 이 각각의 인스턴스가 AutoDispose 대상이 된다. 'abc' 상세 페이지를 닫으면 'abc' 인스턴스만 정리됨.
+'abc' 상품의 상세 페이지를 열면 'abc' 인스턴스만 생기고, 'xyz' 상품과는 완전히 독립적이다. [[AutoDispose]]에서 말한 것처럼, 이 각각의 인스턴스가 AutoDispose 대상이 된다. 'abc' 상세 페이지를 닫으면 'abc' 인스턴스만 정리됨.
 
 ---
 

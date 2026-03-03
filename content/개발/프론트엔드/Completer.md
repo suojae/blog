@@ -1,5 +1,5 @@
 ---
-title: "Dart Completer"
+title: "Completer"
 tags:
   - dart
   - 비동기

@@ -1,5 +1,5 @@
 ---
-title: "Flutter Build Hooks"
+title: "Build Hooks"
 tags:
   - flutter
   - build-hooks

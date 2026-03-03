@@ -1,5 +1,5 @@
 ---
-title: "모바일 소켓 vs 브라우저 HTTP"
+title: "소켓 vs HTTP"
 tags:
   - socket
   - tcp

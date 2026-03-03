@@ -1,5 +1,5 @@
 ---
-title: "Flutter SVG 컨트리뷰션"
+title: "SVG 컨트리뷰션"
 tags:
   - flutter
   - svg

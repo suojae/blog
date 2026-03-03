@@ -1,5 +1,5 @@
 ---
-title: "Flutter 소스코드 구조"
+title: "Flutter 소스 구조"
 tags:
   - flutter
   - open-source
@@ -176,7 +176,7 @@ IDE에서 Ctrl+Click으로 따라가면 이 경로가 보인다. 프레임워크
 
 ### flutter_test — 테스트 도구들
 
-[[Flutter pumpWidget|pumpWidget, pump]] 같은 테스트 도구가 여기 들어있다. `testWidgets()`, `WidgetTester`, `find`, 골든 파일 비교 등.
+[[pumpWidget]] 같은 테스트 도구가 여기 들어있다. `testWidgets()`, `WidgetTester`, `find`, 골든 파일 비교 등.
 
 ### flutter_tools — CLI의 정체
 
@@ -360,13 +360,13 @@ camera_android, camera_avfoundation, camera_web
 
 개발자는 `camera` 패키지만 import한다. 빌드할 때 플랫폼에 맞는 구현이 자동으로 연결됨. 새 플랫폼(예: Tizen)을 지원하고 싶으면 `camera_tizen`만 만들면 된다. 기존 코드를 건드릴 필요 없음.
 
-이 패턴은 flutter/packages의 거의 모든 플러그인에 적용되어 있다. [[Flutter 인앱결제 구현|인앱결제]]도 `in_app_purchase` + `in_app_purchase_storekit`(iOS) + `in_app_purchase_android`로 나뉘어 있다.
+이 패턴은 flutter/packages의 거의 모든 플러그인에 적용되어 있다. [[인앱결제]]도 `in_app_purchase` + `in_app_purchase_storekit`(iOS) + `in_app_purchase_android`로 나뉘어 있다.
 
 ---
 
 ## 프레임이 그려지는 전체 여정
 
-[[Flutter setState|setState]]를 호출하면 화면이 갱신된다고 했다. 그 여정을 세 층 전부를 거쳐서 따라가보자.
+[[setState]]를 호출하면 화면이 갱신된다고 했다. 그 여정을 세 층 전부를 거쳐서 따라가보자.
 
 ```
 1. setState() 호출                             [3층 프레임워크]

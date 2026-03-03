@@ -1,5 +1,5 @@
 ---
-title: "Flutter Material 분리"
+title: "Material 분리"
 tags:
   - flutter
   - material
@@ -29,7 +29,7 @@ flutter SDK (한 덩어리)
 
 ## 층 사이에 배선이 꼬여있다
 
-[[Flutter 소스코드 구조|Flutter 프레임워크 내부]]에는 층 구조가 있다. 아래에서 위로:
+[[Flutter 소스 구조|Flutter 프레임워크 내부]]에는 층 구조가 있다. 아래에서 위로:
 
 ```
 Material / Cupertino  (디자인 시스템)
@@ -324,6 +324,6 @@ class MyButton extends StatelessWidget {
 
 "그럼 `material.dart` 당장 안 써도 되나?" 했는데, 아직 아니다. 지금은 `material.dart`가 핵심 위젯까지 전부 re-export하고 있어서, 이걸 빼면 기본 위젯도 못 쓰게 된다. 분리가 완료된 후에야 진짜 선택이 된다.
 
-`widgets.dart`만 import하고 개발해보니까, 생각보다 Material 위젯 없이 할 수 있는 게 많았다. `Container`, `Column`, `Row`, `Stack`, `Padding`, `Text`, `GestureDetector`만으로 기본 레이아웃은 다 짤 수 있다. [[Flutter setState|setState]]도 `widgets.dart`에 있다. Material은 예쁘게 꾸미는 단계에서 얹는 거지 필수가 아니다.
+`widgets.dart`만 import하고 개발해보니까, 생각보다 Material 위젯 없이 할 수 있는 게 많았다. `Container`, `Column`, `Row`, `Stack`, `Padding`, `Text`, `GestureDetector`만으로 기본 레이아웃은 다 짤 수 있다. [[setState]]도 `widgets.dart`에 있다. Material은 예쁘게 꾸미는 단계에서 얹는 거지 필수가 아니다.
 
 "Cupertino만 쓰면 Material 코드가 안 들어오는 거 아냐?" 했는데, 실제로 빌드 결과를 보면 핵심 위젯이 Material에 의존하는 부분 때문에 Material 코드 일부가 딸려온다. 트리 셰이킹이 만능이 아닌 게, 조건부 import 같은 패턴은 컴파일 시점에 제거가 안 되는 경우가 있기 때문이다. 분리가 완료되면 이런 문제가 원천적으로 사라진다.

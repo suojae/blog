@@ -1,5 +1,5 @@
 ---
-title: "Flutter FCM 라우팅"
+title: "FCM 라우팅"
 tags:
   - flutter
   - fcm

@@ -1,5 +1,5 @@
 ---
-title: "Dart 매크로 폐기"
+title: "Dart 매크로"
 tags:
   - dart
   - flutter
