@@ -1,5 +1,5 @@
 ---
-title: "AWS SES vs SQS vs SNS 비교"
+title: "AWS SES, SQS, SNS 차이"
 tags:
   - aws
   - ses

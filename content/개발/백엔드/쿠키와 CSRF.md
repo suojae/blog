@@ -1,5 +1,5 @@
 ---
-title: "브라우저가 몰래 챙기는 쪽지 — 쿠키와 CSRF"
+title: "쿠키와 CSRF"
 tags:
   - cookie
   - csrf
@@ -304,7 +304,7 @@ SameSite=Lax (현재 기본):
 
 ---
 
-## SameSite만으로 충분하지 않은 이유
+## SameSite만 믿으면 구멍이 남는다
 
 SameSite가 많은 걸 막아주지만, 방어를 이것 하나에만 의존하면 안 된다. 실전에서는 여러 겹으로 막는다.
 
@@ -358,7 +358,7 @@ evil.com에서 시작된 요청:
 
 ---
 
-## 쿠키 vs 토큰 — 전체 그림에서 보기
+## 쿠키 vs 토큰 — 각각 다른 구멍이 있다
 
 웹에서 인증하는 방식이 쿠키만 있는 건 아니다. 앱 개발자에게 익숙한 토큰 방식도 웹에서 쓴다.
 
@@ -441,7 +441,7 @@ Flutter 웹:
   → CORS 제약, SameSite 정책 등이 적용됨
 ```
 
-백엔드가 쿠키 기반 인증을 쓰는데 Flutter 웹에서 API를 호출하면, [[모바일은 소켓을 쥐고, 브라우저는 창구 뒤에 숨긴다|모바일과 웹의 네트워킹 차이]]와 마찬가지로 다르게 동작할 수 있다. `credentials: 'include'` 설정이 필요하거나, CORS 정책 때문에 쿠키가 안 붙거나 하는 상황이 생기는데, 쿠키의 동작 원리를 알면 원인을 금방 찾는다.
+백엔드가 쿠키 기반 인증을 쓰는데 Flutter 웹에서 API를 호출하면, [[소켓 vs HTTP|모바일과 웹의 네트워킹 차이]]와 마찬가지로 다르게 동작할 수 있다. `credentials: 'include'` 설정이 필요하거나, CORS 정책 때문에 쿠키가 안 붙거나 하는 상황이 생기는데, 쿠키의 동작 원리를 알면 원인을 금방 찾는다.
 
 ---
 
@@ -466,6 +466,6 @@ SameSite = "이 쪽지는 우리 카페에서 직접 온 손님한테만 적용"
 
 ## 참고
 
-- [[모바일은 소켓을 쥐고, 브라우저는 창구 뒤에 숨긴다]] — 브라우저가 네트워크를 감추는 이유, Same-Origin Policy와 CORS
+- [[소켓 vs HTTP]] — 브라우저가 네트워크를 감추는 이유, Same-Origin Policy와 CORS
 - [MDN — HTTP Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) — 쿠키 스펙의 공식 레퍼런스
 - [OWASP — CSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html) — CSRF 방어 기법 정리

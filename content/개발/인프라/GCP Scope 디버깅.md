@@ -1,5 +1,5 @@
 ---
-title: "서버가 API를 호출하는데 문 앞에서 쫓겨날 때"
+title: "GCP Scope 디버깅"
 tags:
   - gcp
   - service-account
@@ -55,7 +55,7 @@ GoogleCredentials.fromStream(keyFile)
 
 ---
 
-## 실제 디버깅 과정
+## 503이 떴는데 진짜 원인은 다른 곳에 있었다
 
 서버 로그에 이렇게만 찍혔다:
 
@@ -109,7 +109,7 @@ curl "https://androidpublisher.googleapis.com/..." \
 
 ---
 
-## 서버의 credential이 scope 없이 만들어지는 시나리오
+## fallback이 scope 없는 credential을 만들었다
 
 Spring Boot에서 credential을 Bean으로 등록하면, 서버가 시작될 때 한 번만 생성되고 이후 계속 재사용된다.
 
